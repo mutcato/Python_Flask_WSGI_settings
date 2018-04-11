@@ -46,5 +46,8 @@ Then create FlaskApp.conf file with nano editor
 	LogLevel warn
 	CustomLog ${APACHE_LOG_DIR}/access.log combined
 	
+Then reload the apache
 	sudo service apache2 reload
+
+Link .conf file to the Apache
 	sudo /usr/sbin/a2ensite FlaskApp.conf
