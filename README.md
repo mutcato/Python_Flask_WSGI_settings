@@ -1,6 +1,8 @@
 # Python_Flask_WSGI_settings
 On Debian Linux WSGI Settings
 
+İnstall Apache Server and WSGI for Python 3
+
 	sudo apt-get install apache2 libapache2-mod-wsgi-py3
 
 /var/www/html/FlaskApp/__init__.py
