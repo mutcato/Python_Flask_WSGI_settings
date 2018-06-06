@@ -32,21 +32,25 @@ Then create FlaskApp.conf file with nano editor
 
 	sudo nano /etc/apache2/sites-available/FlaskApp.conf
 
-	ServerName 192.168.0.127
-	ServerAdmin youemail@email.com
-	WSGIScriptAlias / /var/www/html/FlaskApp/FlaskApp.wsgi
+	<VirtualHost *:80>
+			ServerName 192.168.0.127
+			ServerAdmin youemail@email.com
+			WSGIScriptAlias / /var/www/html/FlaskApp/FlaskApp.wsgi
+			<Directory /var/www/html/FlaskApp/>
+				Order allow,deny
+				Allow from all
+			</Directory>
+			Alias /static /var/www/html/FlaskApp/static
+			<Directory /var/www/html/FlaskApp/static/>
+				Order allow,deny
+				Allow from all
+			</Directory>
+			ErrorLog /var/www/html/FlaskApp/logs/error.log
+			LogLevel warn
+			CustomLog ${APACHE_LOG_DIR}/access.log combined
+	</VirtualHost>
 
-	Order allow,deny
-	Allow from all
-
-	Alias /static /var/www/html/FlaskApp/static
-
-	Order allow,deny
-	Allow from all
-
-	ErrorLog /var/www/html/FlaskApp/logs/error.log
-	LogLevel warn
-	CustomLog ${APACHE_LOG_DIR}/access.log combined
+<VirtualHost *:80>
 	
 Then reload the apache
 	
