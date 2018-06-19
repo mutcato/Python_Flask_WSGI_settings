@@ -33,19 +33,21 @@ Then create FlaskApp.conf file with nano editor
 	sudo nano /etc/apache2/sites-available/FlaskApp.conf
 
 	<VirtualHost *:80>
-			ServerName 192.168.0.127
-			ServerAdmin youemail@email.com
-			WSGIScriptAlias / /var/www/html/FlaskApp/FlaskApp.wsgi
-			<Directory /var/www/html/FlaskApp/>
+			ServerName 192.168.0.130
+			ServerAdmin myemail@gmail.com
+			WSGIDaemonProcess insta python-path=/home/pi/Public/insta:/home$
+			WSGIProcessGroup insta
+			WSGIScriptAlias / /home/pi/Public/insta/FlaskApp.wsgi
+			<Directory /home/pi/Public/insta/>
 				Order allow,deny
 				Allow from all
 			</Directory>
-			Alias /static /var/www/html/FlaskApp/static
-			<Directory /var/www/html/FlaskApp/static/>
+			Alias /static /home/pi/Public/insta/static
+			<Directory /home/pi/Public/insta/static/>
 				Order allow,deny
 				Allow from all
 			</Directory>
-			ErrorLog /var/www/html/FlaskApp/logs/error.log
+			ErrorLog /home/pi/Public/insta/logs/error.log
 			LogLevel warn
 			CustomLog ${APACHE_LOG_DIR}/access.log combined
 	</VirtualHost>
