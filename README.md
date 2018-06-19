@@ -34,8 +34,8 @@ Then create FlaskApp.conf file with nano editor
 
 	<VirtualHost *:80>
 			ServerName 192.168.0.130
-			ServerAdmin myemail@gmail.com
-			WSGIDaemonProcess insta python-path=/home/pi/Public/insta:/home$
+			ServerAdmin email@gmail.com
+			WSGIDaemonProcess insta python-path=/home/pi/Public/insta:/home/pi/.virtualenvs/insta/lib/python3.5/site-packages
 			WSGIProcessGroup insta
 			WSGIScriptAlias / /home/pi/Public/insta/FlaskApp.wsgi
 			<Directory /home/pi/Public/insta/>
