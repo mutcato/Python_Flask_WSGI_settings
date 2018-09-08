@@ -1,4 +1,4 @@
-# Python_Flask_WSGI_settings
+# Python Flask WSGI settings
 On Debian Linux WSGI Settings
 
 İnstall Apache Server and WSGI for Python 3
